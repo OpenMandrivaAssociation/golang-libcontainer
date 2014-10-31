@@ -1,11 +1,10 @@
-%global debug_package   %{nil}
+%define debug_package   %{nil}
 %define import_path     github.com/docker/libcontainer
-%define gopath          %{_libdir}/golang
-%define gosrc %{gopath}/src/pkg/%{import_path}
+%define gosrc %{go_dir}/src/pkg/%{import_path}
 
 Name:           golang-libcontainer
 Version:        1.2.0
-Release:        1
+Release:        2
 Summary:        Docker libcontainer library
 License:        Apache 2.0
 URL:            https://%{import_path}
