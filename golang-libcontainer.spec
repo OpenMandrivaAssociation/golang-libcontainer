@@ -23,6 +23,7 @@ Provides:       golang(%{import_path}/label) = %{version}-%{release}
 Provides:       golang(%{import_path}/mount) = %{version}-%{release}
 Provides:       golang(%{import_path}/mount/nodes) = %{version}-%{release}
 Provides:       golang(%{import_path}/namespaces) = %{version}-%{release}
+Provides:       golang(%{import_path}/namespaces/nsenter) = %{version}-%{release}
 Provides:       golang(%{import_path}/netlink) = %{version}-%{release}
 Provides:       golang(%{import_path}/network) = %{version}-%{release}
 Provides:       golang(%{import_path}/nsinit) = %{version}-%{release}
@@ -44,7 +45,7 @@ Simple library that implements container support for Linux
 %build
 
 %install
-for d in . apparmor cgroups cgroups/fs cgroups/systemd console devices label mount mount/nodes namespaces netlink network nsinit security/capabilities security/restrict selinux system syncpipe utils user; do
+for d in . apparmor cgroups cgroups/fs cgroups/systemd console devices label mount mount/nodes namespaces namespaces/nsenter netlink network nsinit security/capabilities security/restrict selinux system syncpipe utils user; do
     install -d -p %{buildroot}/%{gosrc}/$d
     cp -av $d/*.go %{buildroot}/%{gosrc}/$d
 done
@@ -62,6 +63,7 @@ done
 %dir %attr(755,root,root) %{gosrc}/mount
 %dir %attr(755,root,root) %{gosrc}/mount/nodes
 %dir %attr(755,root,root) %{gosrc}/namespaces
+%dir %attr(755,root,root) %{gosrc}/namespaces/nsenter
 %dir %attr(755,root,root) %{gosrc}/netlink
 %dir %attr(755,root,root) %{gosrc}/network
 %dir %attr(755,root,root) %{gosrc}/nsinit
@@ -84,6 +86,7 @@ done
 %{gosrc}/mount/*.go
 %{gosrc}/mount/nodes/*.go
 %{gosrc}/namespaces/*.go
+%{gosrc}/namespaces/nsenter/*.go
 %{gosrc}/netlink/*.go
 %{gosrc}/network/*.go
 %{gosrc}/nsinit/*.go
