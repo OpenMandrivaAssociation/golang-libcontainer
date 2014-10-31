@@ -4,7 +4,7 @@
 
 Name:           golang-libcontainer
 Version:        1.2.0
-Release:        2
+Release:        3
 Summary:        Docker libcontainer library
 License:        Apache 2.0
 URL:            https://%{import_path}
